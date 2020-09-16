@@ -1,5 +1,6 @@
 export default {
     products:[{
+        _id: 1,
         name: 'Ball dog toy',
         category: 'Toys',
         image: '/images/d1.jpg',
@@ -9,6 +10,7 @@ export default {
         numReviews: 10
     },
     {
+        _id: 2,
         name: 'Chewing toy',
         category: 'Toys',
         image: '/images/d1.jpg',
@@ -18,6 +20,7 @@ export default {
         numReviews: 10
     },
     {
+        _id: 3,
         name: 'Chicken fillets',
         category: 'Treats',
         image: '/images/d3.jpg',
