@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import data from './data';
 import './App.css';
 
 function App() {
@@ -29,101 +29,30 @@ function App() {
         <h3>Shopping Categories</h3>
         <button class="sidebar-close" onClick={closeMenu}>x</button>
         <ul>
-          <li><a href="index.html">Balls</a></li>
-          <li><a href="index.html">Chewing toys</a></li>
+          <li><a href="index.html">Toys</a></li>
+          <li><a href="index.html">Treats</a></li>
         </ul>
       </aside>
       <main className="main">
         <div className="content">
           <ul className="products">
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image" src="./images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image" src="/images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image" src="/images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image" src="/images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image" src="/images/d1.jpg" alt="product"></img>
-                <div className="product-name">
-                  <a href="product.html">Ball dog toy</a>
-                </div>
-                <div className="product-brand">Toyz Space</div>
-                <div className="product-price">$6</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
+            {
+              data.products.map(product =>
+                <li>
+                  <div className="product">
+                    <img className="product-image" src={product.image} alt="product"></img>
+                    <div className="product-name">
+                      <a href="product.html">{product.name}</a>
+                    </div>
+                    <div className="product-brand">{product.brand}</div>
+                    <div className="product-price">${product.price}</div>
+                    <div className="product-rating">{product.rating} Stars ({product.numReviews} reviews)</div>
+                  </div>
+                </li>
+              )
+            }
+            
+
           </ul>
         </div>
       </main>
