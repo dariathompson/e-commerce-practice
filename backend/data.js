@@ -7,7 +7,8 @@ export default {
         price: 6,
         brand: 'Toyz Space',
         rating: 4.5,
-        numReviews: 10
+        numReviews: 10,
+        countInStock: 6
     },
     {
         _id: '2',
@@ -17,7 +18,8 @@ export default {
         price: 6,
         brand: 'Toyz Space',
         rating: 4.5,
-        numReviews: 10
+        numReviews: 10,
+        countInStock: 6,
     },
     {
         _id: '3',
@@ -27,6 +29,7 @@ export default {
         price: 8,
         brand: 'Rosewood',
         rating: 4.8,
-        numReviews: 4
+        numReviews: 4,
+        countInStock: 9
     }]
 }
