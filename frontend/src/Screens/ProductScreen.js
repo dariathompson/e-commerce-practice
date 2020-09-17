@@ -16,6 +16,10 @@ function ProductScreen(props) {
     dispatch(detailsProduct(props.match.params.id));
   }, [])
 
+  const handleAddToCart = () => {
+    props.history.push('/cart/' + props.match.params.id + '?qty' + qty)
+  }
+
   return(
     <div>
       <div className="back-to-result">
@@ -53,17 +57,17 @@ function ProductScreen(props) {
                 Price: {product.price}
               </li>
               <li>
-                Status: {product.status}
+                Status: {product.countInStock > 0 ? 'In stock' : 'Not in stock'}
               </li>
               <li>
                 Qty: <select value={qty} onChange={(e) => { setQty(e.target.value) }}>
                   {[...Array(product.countInStock).keys()].map(x => 
-                    <option value={x + 1}>{x + 1}</option>
+                    <option key={x + 1} value={x + 1}>{x + 1}</option>
                   )}
                 </select>
               </li>
               <li>
-                <button className="cart-button">Add to cart</button>
+                {product.countInStock > 0 && <button onClick={handleAddToCart} className="cart-button">Add to cart</button>}
               </li>
             </ul>
           </div>

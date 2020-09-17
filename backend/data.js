@@ -31,5 +31,16 @@ export default {
         rating: 4.8,
         numReviews: 4,
         countInStock: 9
+    },
+    {
+        _id: '4',
+        name: 'Beef fillets',
+        category: 'Treats',
+        image: '/images/d3.jpg',
+        price: 8,
+        brand: 'Rosewood',
+        rating: 4.8,
+        numReviews: 4,
+        countInStock: 0
     }]
 }
