@@ -7,7 +7,6 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/api/products', (req, res) => {
-    console.log("Hey");
     res.send(data.products);
 })
 
