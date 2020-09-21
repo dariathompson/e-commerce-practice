@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
+import { Link } from 'react-router-dom';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 
 function CartScreen(props){
 
@@ -11,6 +12,9 @@ function CartScreen(props){
   const productId = props.match.params.id;
   const qty = props.location.search ? Number(props.location.search.split("=")[1]) : 1;
   const dispatch = useDispatch();
+  const removeFromCartHandler = (productId) => {
+    dispatch(removeFromCart(productId));
+  }
 
   useEffect(() => {
     if (productId) {
@@ -19,10 +23,11 @@ function CartScreen(props){
   }, []);
 
   const checkoutHandler = () => {
-    console.log('Checkout')
+    console.log('Checkout');
   }
 
-  return <div className="cart">
+  return(
+  <div className="cart">
     <div className="cart-list">
       <ul className="cart-list-container">
         <li>
@@ -46,9 +51,9 @@ function CartScreen(props){
                 </div>
                 <div className="cart-name">
                   <div>
-                    
+                    <Link to={"/product/" + item.product}>
                       {item.name}
-
+                    </Link>
                   </div>
                   <div>
                     Qty:
@@ -57,6 +62,7 @@ function CartScreen(props){
                         <option key={x + 1} value={x + 1}>{x + 1}</option>
                       )}
                     </select>
+                    <button type="button" className="cart-button" onClick={() => removeFromCartHandler(item.product)}>Delete</button>
                   </div>
                 </div>
                 <div className="cart-price">
@@ -74,13 +80,14 @@ function CartScreen(props){
         :
          $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
       </h3>
-      <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
+      <button onClick={checkoutHandler} className="cart-button full-width" disabled={cartItems.length === 0}>
         Checkout
       </button>
 
     </div>
 
   </div>
+  )
 }
 
 export default CartScreen;
