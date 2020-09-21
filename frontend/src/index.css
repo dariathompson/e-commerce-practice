@@ -9,6 +9,10 @@ body{
   margin: 0;
 }
 
+button{
+  font-size: 1.6rem;
+}
+
 #root{
   height: 100%;
 }
@@ -22,6 +26,10 @@ body{
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
+}
+
+.full-width{
+  width: 100%;
 }
 
 .header{
